@@ -89,4 +89,4 @@ jobs:
             export BE_IMAGE="${{ steps.tags_output.outputs.IMAGE }}"
             echo "Deploying $BE_IMAGE to development server"
 
-          BE_IMAGE=$IMAGE docker-compose pull app && BE_IMAGE=$IMAGE docker-compose up -d app
+            BE_IMAGE=$IMAGE docker-compose pull app && BE_IMAGE=$IMAGE docker-compose up -d app
