@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRUD Products — Elasticsearch</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header>
+        <div>
+          <h1>Quản lý sản phẩm</h1>
+          <p class="subtitle">CRUD với Elasticsearch</p>
+        </div>
+        <div id="status" class="status">Đang kiểm tra ES...</div>
+      </header>
+
+      <section class="panel">
+        <h2 id="form-title">Thêm sản phẩm</h2>
+        <form id="product-form">
+          <input type="hidden" id="product-id" />
+          <div class="grid">
+            <label>
+              Tên sản phẩm *
+              <input id="name" type="text" required placeholder="Ví dụ: Laptop Dell" />
+            </label>
+            <label>
+              Giá (VND) *
+              <input id="price" type="number" min="0" step="1000" required placeholder="15000000" />
+            </label>
+            <label>
+              Danh mục
+              <input id="category" type="text" placeholder="electronics" />
+            </label>
+            <label class="full">
+              Mô tả
+              <textarea id="description" rows="3" placeholder="Mô tả ngắn..."></textarea>
+            </label>
+          </div>
+          <div class="actions">
+            <button type="submit" id="submit-btn">Thêm mới</button>
+            <button type="button" id="cancel-btn" class="secondary hidden">Hủy</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="panel">
+        <div class="list-header">
+          <h2>Danh sách</h2>
+          <div class="search-box">
+            <input id="search" type="search" placeholder="Tìm kiếm..." />
+            <button type="button" id="search-btn" class="secondary">Tìm</button>
+          </div>
+        </div>
+        <div id="message" class="message hidden"></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Tên</th>
+                <th>Danh mục</th>
+                <th>Giá</th>
+                <th>Cập nhật</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="product-list"></tbody>
+          </table>
+        </div>
+        <p id="empty" class="empty hidden">Chưa có sản phẩm nào.</p>
+      </section>
+    </div>
+    <script src="/app.js"></script>
+  </body>
+</html>
