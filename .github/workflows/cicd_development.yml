@@ -86,7 +86,7 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           script: |
             cd ~/techdevops
-            export BE_IMAGE="${{ steps.tags_output.outputs.IMAGE }}"
-            echo "Deploying $BE_IMAGE to development server"
+            export IMAGE="${{ steps.tags_output.outputs.IMAGE }}"
+            echo "Deploying $IMAGE to development server"
 
             BE_IMAGE=$IMAGE docker-compose pull app && BE_IMAGE=$IMAGE docker-compose up -d app
